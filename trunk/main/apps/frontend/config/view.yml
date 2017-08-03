@@ -1,0 +1,20 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/13-View
+
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    #title:        symfony title
+    #description:  symfony project
+    #keywords:     symfony, project
+    #language:     en
+    #robots:       index, follow
+
+  stylesheets:    [reset.css,main.css]
+
+  javascripts:    [apps/fontend/javascript/jquery.min.js,apps/fontend/javascript/bootstrap.min.js,slides.min.jquery.js,jquery.labellify.js,jquery.colorbox.js]
+
+  has_layout:     true
+  layout:         layout

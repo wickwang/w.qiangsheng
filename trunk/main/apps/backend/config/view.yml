@@ -1,0 +1,16 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/13-View
+
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    title:        后台管理面板
+
+  stylesheets:    [apps/admin/reset.css,/sfPropel15Plugin/css/global.css,/sfPropel15Plugin/css/default.css,apps/admin/app.css]
+
+  javascripts:    [jquery-1.7.2.min.js,jquery.tools.min.js,jquery-ui-1.8.4.custom.min.js,3rd/tiny_mce/tiny_mce.js,/js/3rd/kindeditor/kindeditor-min.js,/js/3rd/kindeditor/lang/zh_CN.js]
+
+  has_layout:     true
+  layout:         layout

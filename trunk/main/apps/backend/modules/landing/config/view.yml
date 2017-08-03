@@ -1,0 +1,4 @@
+all:
+  metas:
+    title: 后台登录
+  stylesheets: [/css/apps/admin/landing/module.css]

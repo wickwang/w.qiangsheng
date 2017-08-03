@@ -1,0 +1,64 @@
+#content input[type="text"]{
+    width: 150px;
+    height: 20px;
+    line-height: 20px;
+    padding: 0px 5px;
+}
+
+#content select.search_select{
+    padding: 3px;
+    margin-right: 20px;
+}
+
+#content form{
+    margin: 5px auto;
+    height: 26px;
+}
+
+#content input#search_submit_zh-cn {
+    cursor: pointer;
+    border: none;
+    width: 44px;
+    height: 26px;
+    background: url("/images/common/search.jpg") no-repeat;
+}
+
+#content input#search_submit_en {
+    cursor: pointer;
+    border: none;
+    width: 62px;
+    height: 27px;
+    background: url("/images/common/search_en.jpg") no-repeat;
+}
+
+#content .search_result{
+    margin-top: 15px;
+}
+
+#content .search_result .page{
+    float: right;
+    margin-right: 5px;
+}
+
+#content .search_content{
+    width: 100%;
+    float: right;
+    margin-top: 5px;
+}
+
+#content #form_search{
+    position: relative;
+}
+
+#content #form_search #search_submit_zh-cn{
+    position: absolute;
+    top: -3px;
+    left: 360px;
+}
+
+#content #form_search #search_submit_en{
+    position: absolute;
+    top: -3px;
+    left: 440px;
+}
+

@@ -1,0 +1,32 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           SettingGeneral
+    theme:                 admin15
+    non_verbose_templates: true
+    with_show:             false
+    singular:              SettingGeneral
+    plural:                SettingGenerals
+    route_prefix:          setting_general
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  
+        system_email_smtp_host: {label: SMTP 服务器}
+        system_email_smtp_port: {label: SMTP 端口}
+        system_email_smtp_use_ssl: {label: 是否使用 SSL}
+        system_email_smtp_username: {label: SMTP 用户名}
+        system_email_smtp_password: {label: SMTP 密码}
+        system_email_from_accout: {label: 系统邮件发送帐号, help: 系统邮件将从该账户发出}
+      list:    ~
+      filter:  ~
+      form:    ~
+      edit:    
+        title: 系统设置
+        display: 
+          "SMTP 设置": [system_email_smtp_host,system_email_smtp_port,system_email_smtp_use_ssl,system_email_smtp_username,system_email_smtp_password]
+          "其它设置": [system_email_from_accout]
+        actions: {_save: ~ }
+      new:     ~

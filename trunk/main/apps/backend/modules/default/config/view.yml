@@ -1,0 +1,12 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/13-View
+  
+signinSuccess:
+  metas:
+    title:        后台登录 - 尚质合规
+  
+  stylesheets:    [apps/admin/default/action/signin.css]
+
+  javascripts:    []
+  
+  layout: layout_signin

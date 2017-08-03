@@ -1,0 +1,1 @@
+<a href="<?php echo $SlideshowItem->getUrl(); ?>"><?php echo $SlideshowItem->getUrl();?></a>

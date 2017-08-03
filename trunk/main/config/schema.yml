@@ -1,0 +1,132 @@
+propel:
+  _attributes:
+    package: lib.model
+    defaultIdMethod: native
+  admin_category:
+    _attributes: { phpName: AdminCategory }
+    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
+    name: { phpName: Name, type: VARCHAR, size: '1000', required: false }
+  admin_item:
+    _attributes: { phpName: AdminItem }
+    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
+    admin_category_id: { phpName: AdminCategoryId, type: INTEGER, size: '11', required: false, foreignTable: admin_category, foreignReference: id, onDelete: 'SET NULL', onUpdate: 'SET NULL' }
+    name: { phpName: Name, type: VARCHAR, size: '1000', required: false }
+    url: { phpName: Url, type: VARCHAR, size: '1000', required: false }
+    image: { phpName: Image, type: VARCHAR, size: '1000', required: false }
+    module: { phpName: Module, type: VARCHAR, size: '500', required: false }
+    is_enabled: { phpName: IsEnabled, type: TINYINT, size: '1', required: false, defaultValue: '1' }
+    _indexes: { admin_category_id: [admin_category_id] }
+  admin_user:
+    _attributes: { phpName: AdminUser }
+    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
+    username: { phpName: Username, type: VARCHAR, size: '255', required: false }
+    password: { phpName: Password, type: VARCHAR, size: '255', required: false }
+    email: { phpName: Email, type: VARCHAR, size: '255', required: false }
+  box_type:
+    _attributes: { phpName: BoxType }
+    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
+    value: { phpName: Value, type: VARCHAR, size: '255', required: false }
+    description: { phpName: Description, type: VARCHAR, size: '255', required: false }
+  catalogue:
+    _attributes: { phpName: Catalogue }
+    cat_id: { phpName: CatId, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
+    type_id: { phpName: TypeId, type: TINYINT, size: '4', required: false }
+    name: { phpName: Name, type: VARCHAR, size: '100', required: true, defaultValue: '' }
+    description: { phpName: Description, type: VARCHAR, size: '255', required: false }
+    source_lang: { phpName: SourceLang, type: VARCHAR, size: '100', required: true, defaultValue: '' }
+    target_lang: { phpName: TargetLang, type: VARCHAR, size: '100', required: true, defaultValue: '' }
+    date_created: { phpName: DateCreated, type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    date_modified: { phpName: DateModified, type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    author: { phpName: Author, type: VARCHAR, size: '255', required: true, defaultValue: '' }
+  config:
+    _attributes: { phpName: Config }
+    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
+    name: { phpName: Name, type: VARCHAR, size: '255', required: false }
+    value: { phpName: Value, type: VARCHAR, size: '255', required: false }
+  image_box:
+    _attributes: { phpName: ImageBox }
+    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
+    box_type_id: { phpName: BoxTypeId, type: INTEGER, size: '11', required: false, foreignTable: box_type, foreignReference: id, onDelete: RESTRICT, onUpdate: CASCADE }
+    title: { phpName: Title, type: VARCHAR, size: '255', required: false }
+    url: { phpName: Url, type: VARCHAR, size: '255', required: false }
+    width: { phpName: Width, type: INTEGER, size: '11', required: true }
+    height: { phpName: Height, type: INTEGER, size: '11', required: true }
+    image_src: { phpName: ImageSrc, type: VARCHAR, size: '255', required: false }
+    created_at: { phpName: CreatedAt, type: INTEGER, size: '11', required: false }
+    _indexes: { box_type_id: [box_type_id] }
+  log:
+    _attributes: { phpName: Log }
+    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
+    log_event_id: { phpName: LogEventId, type: INTEGER, size: '11', required: false, foreignTable: log_event, foreignReference: id, onDelete: RESTRICT, onUpdate: CASCADE }
+    category: { phpName: Category, type: INTEGER, size: '11', required: false }
+    description: { phpName: Description, type: VARCHAR, size: '500', required: false }
+    created_at: { phpName: CreatedAt, type: INTEGER, size: '11', required: false }
+    _indexes: { log_event_id: [log_event_id] }
+  log_event:
+    _attributes: { phpName: LogEvent }
+    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
+    category: { phpName: Category, type: INTEGER, size: '11', required: false }
+    source1: { phpName: Source1, type: VARCHAR, size: '500', required: false }
+    source2: { phpName: Source2, type: VARCHAR, size: '500', required: false }
+    action: { phpName: Action, type: VARCHAR, size: '500', required: false }
+  mail_message:
+    _attributes: { phpName: MailMessage }
+    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
+    message: { phpName: Message, type: BLOB, required: true }
+    created_at: { phpName: CreatedAt, type: INTEGER, size: '11', required: false }
+  setting_general:
+    _attributes: { phpName: SettingGeneral }
+    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
+    system_email_smtp_host: { phpName: SystemEmailSmtpHost, type: VARCHAR, size: '255', required: false }
+    system_email_smtp_port: { phpName: SystemEmailSmtpPort, type: INTEGER, size: '11', required: false }
+    system_email_smtp_use_ssl: { phpName: SystemEmailSmtpUseSsl, type: TINYINT, size: '4', required: false }
+    system_email_smtp_username: { phpName: SystemEmailSmtpUsername, type: VARCHAR, size: '255', required: false }
+    system_email_smtp_password: { phpName: SystemEmailSmtpPassword, type: VARCHAR, size: '255', required: false }
+    system_email_from_accout: { phpName: SystemEmailFromAccout, type: VARCHAR, size: '255', required: false }
+  slideshow:
+    _attributes: { phpName: Slideshow }
+    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
+    name: { phpName: Name, type: VARCHAR, size: '255', required: false }
+    image_width: { phpName: ImageWidth, type: INTEGER, size: '11', required: false }
+    image_height: { phpName: ImageHeight, type: INTEGER, size: '11', required: false }
+  slideshow_item:
+    _attributes: { phpName: SlideshowItem }
+    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
+    slideshow_id: { phpName: SlideshowId, type: INTEGER, size: '11', required: false, foreignTable: slideshow, foreignReference: id, onDelete: 'SET NULL', onUpdate: CASCADE }
+    title: { phpName: Title, type: VARCHAR, size: '20', required: false }
+    url: { phpName: Url, type: VARCHAR, size: '255', required: false }
+    photo: { phpName: Photo, type: VARCHAR, size: '255', required: false }
+    image_token: { phpName: ImageToken, type: VARCHAR, size: '255', required: false }
+    description: { phpName: Description, type: LONGVARCHAR, required: false }
+    position: { phpName: Position, type: INTEGER, size: '11', required: false }
+    created_at: { phpName: CreatedAt, type: INTEGER, size: '11', required: false }
+    updated_at: { phpName: UpdatedAt, type: INTEGER, size: '11', required: false }
+    _indexes: { slideshow_id: [slideshow_id] }
+  text_box:
+    _attributes: { phpName: TextBox }
+    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
+    box_type_id: { phpName: BoxTypeId, type: INTEGER, size: '11', required: false, foreignTable: box_type, foreignReference: id, onDelete: RESTRICT, onUpdate: CASCADE }
+    title: { phpName: Title, type: VARCHAR, size: '255', required: false }
+    body: { phpName: Body, type: LONGVARCHAR, required: false }
+    created_at: { phpName: CreatedAt, type: INTEGER, size: '11', required: false }
+    _indexes: { text_box_type_id: [box_type_id] }
+  trans_unit:
+    _attributes: { phpName: TransUnit }
+    msg_id: { phpName: MsgId, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
+    cat_id: { phpName: CatId, type: INTEGER, size: '11', required: true, defaultValue: '1' }
+    id: { phpName: Id, type: VARCHAR, size: '255', required: true, defaultValue: '' }
+    source: { phpName: Source, type: LONGVARCHAR, required: true }
+    target: { phpName: Target, type: LONGVARCHAR, required: true }
+    comments: { phpName: Comments, type: LONGVARCHAR, required: false }
+    date_added: { phpName: DateAdded, type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    date_modified: { phpName: DateModified, type: INTEGER, size: '11', required: true, defaultValue: '0' }
+    author: { phpName: Author, type: VARCHAR, size: '255', required: false, defaultValue: '' }
+    translated: { phpName: Translated, type: TINYINT, size: '1', required: true, defaultValue: '1' }
+    _indexes: { cat_id: [cat_id] }
+  user:
+    _attributes: { phpName: User }
+    id: { phpName: Id, type: INTEGER, size: '11', primaryKey: true, autoIncrement: true, required: true }
+    user_group_id: { phpName: UserGroupId, type: INTEGER, size: '11', required: false }
+    username: { phpName: Username, type: VARCHAR, size: '255', required: false }
+    email: { phpName: Email, type: VARCHAR, size: '255', required: false }
+    password: { phpName: Password, type: VARCHAR, size: '255', required: false }

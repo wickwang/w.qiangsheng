@@ -1,0 +1,52 @@
+setting_general:
+  class: sfPropel15RouteCollection
+  options:
+    model:                SettingGeneral
+    module:               setting_general
+    prefix_path:          /setting_general
+    column:               id
+    with_wildcard_routes: true
+
+slideshow_item:
+  class: sfPropel15RouteCollection
+  options:
+    model:                SlideshowItem
+    module:               slideshow_item
+    prefix_path:          /slideshow_item
+    column:               id
+    with_wildcard_routes: true
+
+text_box:
+  class: sfPropel15RouteCollection
+  options:
+    model:                TextBox
+    module:               text_box
+    prefix_path:          /text_box
+    column:               id
+    with_wildcard_routes: true
+
+image_box:
+  class: sfPropel15RouteCollection
+  options:
+    model:                ImageBox
+    module:               image_box
+    prefix_path:          /image_box
+    column:               id
+    with_wildcard_routes: true
+
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+# default rules
+homepage:
+  url:   /
+  param: { module: sfAdminDash, action: dashboard }
+
+# generic rules
+# please, remove them by adding more specific rules
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*

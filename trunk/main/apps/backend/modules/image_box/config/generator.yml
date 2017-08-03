@@ -1,0 +1,40 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           ImageBox
+    theme:                 admin15
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ImageBox
+    plural:                ImageBoxs
+    route_prefix:          image_box
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  
+        box_type_id: {label: 内容类型}
+        box_type_text: {label: 内容类型}
+        title: {label: 标题}
+        url: {label: 链接地址}
+        width: {label: 宽度（px）, help: 单位像素 px}
+        height: {label: 高度（px）, help: 单位像素 px}
+        image_src: {label: 图片}
+        created_at: {label: 日期}
+      list:    
+        title: 图片广告位管理列表
+        display: [id,_box_type_id,_title,width,height,_created_at]
+#        object_actions: {_edit: ~}
+#        batch_actions: {}
+#        actions: {}
+      filter:  
+        display: [box_type_id,title]
+      form:    
+        display: [box_type_text,title,url,width,height,image_src]
+      edit:    
+        title: 图片广告位管理编辑
+        actions: { _list: ~, _save: ~ }
+      new:     
+        title: 图片广告位管理新建
+        display: [box_type_id,title,url,width,height]

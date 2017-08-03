@@ -1,0 +1,37 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           TextBox
+    theme:                 admin15
+    non_verbose_templates: true
+    with_show:             false
+    singular:              TextBox
+    plural:                TextBoxs
+    route_prefix:          text_box
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  
+        box_type_id: {label: 内容类型}
+        box_type_text: {label: 内容类型}
+        title: {label: 标题}
+        body: {label: 内容}
+        created_at: {label: 日期}
+      list:    
+        title: 全局静态文本框管理列表
+        display: [id,_box_type_id,_title,_created_at]
+#        object_actions: {_edit: ~}
+#        batch_actions: {}
+#        actions: {}
+      filter:  
+        display: [box_type_id,title]
+      form:    
+        display: [box_type_text,title,body]
+      edit:    
+        title: 全局静态文本框管理编辑
+        actions: { _list: ~, _save: ~ }
+      new:     
+        title: 全局静态文本框管理新建
+        display: [box_type_id,title,body]

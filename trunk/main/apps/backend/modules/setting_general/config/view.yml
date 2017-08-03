@@ -1,0 +1,3 @@
+all:
+  stylesheets:    [/css/apps/admin/setting_general/module.css]
+  javascripts:    []
